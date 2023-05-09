@@ -1,0 +1,19 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches: [ main, development, release ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
